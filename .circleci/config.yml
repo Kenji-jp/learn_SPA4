@@ -11,6 +11,6 @@ jobs:
       - run: ls -la
       - run:
           name: Testing application
-          command: pwd
-          working_directory: ~/repo
+          command: ls -la
+          working_directory: /web
       
