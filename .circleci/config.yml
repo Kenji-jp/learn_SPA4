@@ -8,9 +8,9 @@ jobs:
 
     steps:
       - checkout
+      - run: ls -la
       - run:
           name: Testing application
-          command: composer install -n --prefer-dist
+          command: ls -la
           working_directory: ~/web
-      - run: cd web/
-      - run: ls -la
+      
