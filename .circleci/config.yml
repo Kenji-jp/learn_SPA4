@@ -5,9 +5,27 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
-      - run: npm install
-      - run: npm run dev
       - run:
-          name: php test
-          command: vendor/bin/phpunit
+          name: check docker-compose version
+          command: docker-compose --version
+      - run:
+          name: docker-compose build
+          command: docker-compose build
+      - run:
+          name: docker-compose up -d
+          command: docker-compose up -d
+      - run:
+          name: docker-compose exec php bash
+          command: docker-compose exec php bash
+      - run:
+          name: composer require laravel/ui:^1.0 --dev
+          command: composer require laravel/ui:^1.0 --dev
+      - run:
+          name: php artisan ui vue --auth
+          command: php artisan ui vue --auth
+      - run:
+          name: npm install --save-dev vue
+          command: npm install --save-dev vue
+      - run:
+          name: npm install --save-dev vue-router
+          command: npm install --save-dev vue-router
