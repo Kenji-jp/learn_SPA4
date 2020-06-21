@@ -9,9 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: composer install
-        command: composer install -n --prefer-dist
-        working_directory: ~/web
+      name: composer install
+      command: composer install -n --prefer-dist
+      working_directory: ~/web
       - run: cd web/
       - run: ls -la
-          
