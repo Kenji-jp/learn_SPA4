@@ -8,22 +8,36 @@ jobs:
 
     steps:
       - checkout
+      # 保存されたキャッシュを復元
+      - restore_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+
       - run:
           name: composer install
           command: composer install -n --prefer-dist
           working_directory: ./web
+
       - run:
           name: composer install
           command: composer require laravel/ui:^1.0 --dev
           working_directory: ./web
+
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+          working_directory: ./web
+
       - run: 
           name: npm
           command: npm ci
           working_directory: ./web
+
       - run: 
           name: npm 2
           command: npm run dev
           working_directory: ./web
+          
       - run:
           name: php test
           command: vendor/bin/phpunit
