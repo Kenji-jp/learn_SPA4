@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+// register
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
