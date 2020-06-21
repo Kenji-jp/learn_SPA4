@@ -14,7 +14,7 @@ jobs:
           working_directory: ./web
       - run: 
           name: npm
-          command: npm install
+          command: npm ci
           working_directory: ./web
       - run: 
           name: npm 2
