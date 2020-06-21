@@ -8,8 +8,10 @@ jobs:
 
     steps:
       - checkout
-
+      - run: composer install -n --prefer-dist
+      - run: npm ci
+      - run: npm run dev
       - run:
-          command: |
-          cd /web
-          composer install
+          name: php test
+          command: vendor/bin/phpunit
+          
