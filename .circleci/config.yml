@@ -8,9 +8,8 @@ jobs:
 
     steps:
       - checkout
-      - run: ls -la
       - run:
-          name: composer
+          name: composer install
           command: composer install -n --prefer-dist
           working_directory: ./web
       - run: 
@@ -18,6 +17,10 @@ jobs:
           command: npm install
           working_directory: ./web
       - run: 
-          name: npm
+          name: npm 2
           command: npm run dev
+          working_directory: ./web
+      - run:
+          name: php test
+          command: vendor/bin/phpunit
           working_directory: ./web
