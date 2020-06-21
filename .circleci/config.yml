@@ -10,7 +10,14 @@ jobs:
       - checkout
       - run: ls -la
       - run:
-          name: Testing application
-          command: ls -la
+          name: composer
+          command: composer install -n --prefer-dist
           working_directory: ./web
-      
+      - run: 
+          name: npm
+          command: npm install
+          working_directory: ./web
+      - run: 
+          name: npm
+          command: npm run dev
+          working_directory: ./web
