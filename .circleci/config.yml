@@ -1,38 +1,13 @@
 version: 2
-  jobs:
-    build:
-      docker:
-        - image: circleci/php:7.3-node-browsers
-      working_directory: ~/repo
-      steps:
-        - checkout
-        - run:
-          name: aaa
-          command: ls -la 
-      # - run:
-      #     name: check docker-compose version
-      #     command: docker-compose --version
-      # - run:
-      #     name: docker-compose build
-      #     command: docker-compose build
-      # - run:
-      #     name: docker-compose up -d
-      #     command: docker-compose up -d
-      # - run:
-      #     name: docker-compose exec php bash
-      #     command: docker-compose exec php bash
-      # - run:
-      #     name: composer install
-      #     command: composer install -n --prefer-dist
-      # - run:
-      #     name: composer require 
-      #     command: composer require laravel/ui:^1.0 --dev
-      # - run:
-      #     name: php artisan ui vue 
-      #     command: php artisan ui vue --auth
-      # - run:
-      #     name: npm install vue
-      #     command: npm install --save-dev vue
-      # - run:
-      #     name: npm install vue-router
-      #     command: npm install --save-dev vue-router
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.3-node-browsers
+
+    working_directory: ~/web
+
+    steps:
+      - checkout
+
+      - run:
+          command: ls -la
