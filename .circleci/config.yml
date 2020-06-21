@@ -4,8 +4,9 @@ jobs:
     docker:
       - image: circleci/php:7.3-node-browsers
 
+    working_directory: ~/repo
     steps:
-      working_directory: ~/web
+      - checkout
       - run:
         name: aaa
         command: ls -la 
@@ -21,18 +22,18 @@ jobs:
       # - run:
       #     name: docker-compose exec php bash
       #     command: docker-compose exec php bash
-      - run:
-          name: composer install
-          command: composer install -n --prefer-dist
-      - run:
-          name: composer require 
-          command: composer require laravel/ui:^1.0 --dev
-      - run:
-          name: php artisan ui vue 
-          command: php artisan ui vue --auth
-      - run:
-          name: npm install vue
-          command: npm install --save-dev vue
-      - run:
-          name: npm install vue-router
-          command: npm install --save-dev vue-router
+      # - run:
+      #     name: composer install
+      #     command: composer install -n --prefer-dist
+      # - run:
+      #     name: composer require 
+      #     command: composer require laravel/ui:^1.0 --dev
+      # - run:
+      #     name: php artisan ui vue 
+      #     command: php artisan ui vue --auth
+      # - run:
+      #     name: npm install vue
+      #     command: npm install --save-dev vue
+      # - run:
+      #     name: npm install vue-router
+      #     command: npm install --save-dev vue-router
