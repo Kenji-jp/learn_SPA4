@@ -3,8 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
+    working_directory: ~/web
     steps:
-      working_directory: ~/web
       - run:
         command: ls -la 
       # - run:
