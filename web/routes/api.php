@@ -10,6 +10,9 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 // logout
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+// login user
+// Route::get('/user', fn() => Auth::user())->name('user');
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,6 +24,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
