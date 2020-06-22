@@ -12,7 +12,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // login user
-Route::get('/user', fn() => Auth::user())->name('user');
+//Route::get('/user', fn() => Auth::user())->name('user');
 /*
 |--------------------------------------------------------------------------
 | API Routes
